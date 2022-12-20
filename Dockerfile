@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11
-COPY *.jar app.jar
+FROM nginx:latest
+COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
+CMD ["nginx", "-g", "daemon off;"]
 EXPOSE 80
-ENTRYPOINT ["java","-jar","/app.jar"]
